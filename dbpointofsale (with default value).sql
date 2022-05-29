@@ -182,7 +182,7 @@ CREATE TABLE `transaction` (
   `Change` DECIMAL NOT NULL DEFAULT '0',
   `Date_Processed` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`Transaction_ID`),
-  FOREIGN KEY (`Receipt_ID`) REFERENCES `receipt`(`Receipt_ID`),
+  FOREIGN KEY (`Receipt_ID`) REFERENCES `receipt`(`ID`),
   FOREIGN KEY (`Payment_Type_ID`) REFERENCES `payment_type`(`Payment_Type_ID`),
   FOREIGN KEY (`Service_Type_ID`) REFERENCES `service_type`(`Service_Type_ID`),
   FOREIGN KEY (`User_ID`) REFERENCES `user`(`User_ID`),
