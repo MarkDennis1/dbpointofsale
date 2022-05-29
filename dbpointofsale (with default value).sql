@@ -159,7 +159,7 @@ DROP TABLE IF EXISTS `receipt`;CREATE TABLE `receipt` (
 DROP TABLE IF EXISTS `transaction`;
 CREATE TABLE `transaction` (
   `Transaction_ID` int(6) unsigned zerofill NOT NULL AUTO_INCREMENT,
-  `Receipt_ID` int(6) unsigned zerofill NOT NULL,
+  `Receipt_ID` int NOT NULL,
   `Payment_Type_ID` int(2) unsigned zerofill NOT NULL,
   `Service_Type_ID` int(2) unsigned zerofill NOT NULL,
   `User_ID` int(3) unsigned zerofill NOT NULL,
