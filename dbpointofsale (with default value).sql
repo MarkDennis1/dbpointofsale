@@ -170,6 +170,7 @@ CREATE TABLE `transaction` (
   `Additional_Products_ID` int(2) unsigned zerofill,
   `Sugar_Level_ID` int(2) unsigned zerofill,
   `Others_ID` int(2) unsigned zerofill,
+  `Promo_ID` int(2) unsigned zerofill,
   `Other_Items` json DEFAULT NULL,
   `Price` int NOT NULL,
   `Quantity` int unsigned NOT NULL,
@@ -181,6 +182,7 @@ CREATE TABLE `transaction` (
   `Change` DECIMAL NOT NULL DEFAULT '0',
   `Date_Processed` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`Transaction_ID`),
+  FOREIGN KEY (`Receipt_ID`) REFERENCES `receipt`(`Receipt_ID`),
   FOREIGN KEY (`Payment_Type_ID`) REFERENCES `payment_type`(`Payment_Type_ID`),
   FOREIGN KEY (`Service_Type_ID`) REFERENCES `service_type`(`Service_Type_ID`),
   FOREIGN KEY (`User_ID`) REFERENCES `user`(`User_ID`),
@@ -190,7 +192,8 @@ CREATE TABLE `transaction` (
   FOREIGN KEY (`Add_Ons_ID`) REFERENCES `add_ons`(`Add_Ons_ID`),
   FOREIGN KEY (`Additional_Products_ID`) REFERENCES `additional_products`(`Additional_Products_ID`),
   FOREIGN KEY (`Sugar_Level_ID`) REFERENCES `sugar_level`(`Sugar_Level_ID`),
-  FOREIGN KEY (`Others_ID`) REFERENCES `others`(`Others_ID`)
+  FOREIGN KEY (`Others_ID`) REFERENCES `others`(`Others_ID`),
+  FOREIGN KEY (`Promo_ID`) REFERENCES `promo`(`Promo_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=100000 DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `customertype` VALUES (01,'Regular',0);
